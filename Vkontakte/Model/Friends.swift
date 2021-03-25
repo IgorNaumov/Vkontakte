@@ -6,6 +6,25 @@
 //
 
 import UIKit
+import Alamofire
+
+
+func loadFriendsFromVK () {
+    AF.request("https://api.vk.com/method/friends.get", parameters: [
+        "access_token" : SessionVK.instance.token,
+        "userId" : SessionVK.instance.userId,
+        "order" : "name",
+        "lang" : "ru",
+        "fields" : "first_name, last_name, bdate, photo_50, id",
+        "v" : "5.130"
+    ]).responseJSON {
+        response in
+        print(response.value as Any)
+    }
+    
+    
+}
+
 
 
 struct Friend {

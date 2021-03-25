@@ -18,7 +18,7 @@ class PhotoAlbumController: UICollectionViewController {
         super.viewDidLoad()
 
       
-       
+        loadPhotoFromVK ()
 
         // Do any additional setup after loading the view.
     }

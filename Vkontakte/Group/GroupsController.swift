@@ -15,6 +15,7 @@ class GroupsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadgroupFromVK ()
         self.title = "Мои Группы"
         
     }

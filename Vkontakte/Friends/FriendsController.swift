@@ -36,7 +36,7 @@ class FriendsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Мои Друзья"
-        
+        loadFriendsFromVK ()
         indexCreate()
         
         searchController.searchResultsUpdater = self

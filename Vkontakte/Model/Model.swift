@@ -11,6 +11,6 @@ class SessionVK {
     private init(){}
     static let instance = SessionVK()
     
-    var userID = 0
+    var userId = 0
     var token = ""
 }

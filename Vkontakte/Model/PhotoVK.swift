@@ -14,7 +14,7 @@ func loadPhotoFromVK () {
         "access_token" : SessionVK.instance.token,
         "userId" : SessionVK.instance.userId,
         "lang" : "ru",
-        
+        "owner_id": "owner_id",
         "extended": "1",
         "v" : "5.130"
     ]).responseJSON {

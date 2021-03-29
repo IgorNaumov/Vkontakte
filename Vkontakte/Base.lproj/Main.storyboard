@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-PA-kRj">
-                                            <rect key="frame" x="60" y="16" width="329" height="28"/>
+                                            <rect key="frame" x="60" y="16" width="164" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -58,20 +58,31 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5e-gl-5KT">
+                                            <rect key="frame" x="226" y="16" width="165" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Zqb-PA-kRj" secondAttribute="trailing" constant="190" id="65g-mG-d9e"/>
                                         <constraint firstItem="Zqb-PA-kRj" firstAttribute="leading" secondItem="ukr-rb-jQi" secondAttribute="trailing" constant="5" id="6ke-dA-puv"/>
                                         <constraint firstAttribute="bottom" secondItem="ukr-rb-jQi" secondAttribute="bottom" constant="5" id="7IO-m1-Gy8"/>
                                         <constraint firstItem="ukr-rb-jQi" firstAttribute="top" secondItem="xqx-5O-uSc" secondAttribute="top" constant="5" id="Biu-rG-bSa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="G5e-gl-5KT" secondAttribute="bottom" constant="5" id="GAO-Vb-wpL"/>
+                                        <constraint firstItem="G5e-gl-5KT" firstAttribute="leading" secondItem="Zqb-PA-kRj" secondAttribute="trailing" constant="2" id="IRc-2Q-THR"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Zqb-PA-kRj" secondAttribute="bottom" constant="5" id="Q86-tk-NnG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Zqb-PA-kRj" secondAttribute="trailing" constant="5" id="QNr-Tu-AnN"/>
                                         <constraint firstItem="Zqb-PA-kRj" firstAttribute="top" secondItem="xqx-5O-uSc" secondAttribute="topMargin" constant="5" id="Yuf-e4-BkM"/>
                                         <constraint firstItem="ukr-rb-jQi" firstAttribute="leading" secondItem="xqx-5O-uSc" secondAttribute="leading" constant="5" id="dbQ-1y-I0U"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="G5e-gl-5KT" secondAttribute="trailing" constant="3" id="jla-Bw-88p"/>
+                                        <constraint firstItem="G5e-gl-5KT" firstAttribute="top" secondItem="xqx-5O-uSc" secondAttribute="topMargin" constant="5" id="qAN-wX-pFW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="shadowView" destination="ukr-rb-jQi" id="efP-9T-sSp"/>
                                     <outlet property="userAvatar" destination="DTN-yp-K6g" id="zmH-a8-pqP"/>
+                                    <outlet property="userLastname" destination="G5e-gl-5KT" id="shW-xF-HPx"/>
                                     <outlet property="userName" destination="Zqb-PA-kRj" id="BcG-2w-Tjf"/>
                                     <segue destination="pA1-n4-Svf" kind="show" identifier="fotoAlbumSegue" id="l8D-pM-o0J"/>
                                 </connections>
@@ -86,7 +97,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axt-dW-eRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2906" y="-306"/>
+            <point key="canvasLocation" x="2905.7971014492755" y="-306.02678571428572"/>
         </scene>
         <!--Photo Album Controller-->
         <scene sceneID="pjf-bl-L2T">

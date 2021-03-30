@@ -43,3 +43,18 @@ func loadgroupFromVK () {
     
     
 }
+
+
+func loadFromVK (){
+AF.request("https://api.vk.com/method/friends.get", method: .get, parameters: [
+    "access_token" : SessionVK.instance.token,
+    "user_id" : SessionVK.instance.userId,
+    //"order" : "name",
+    "lang" : "ru",
+    "fields" : "sex, domain, last_name",
+    "v" : "5.130"
+]).responseJSON {
+    response in
+    print(response.value as Any)
+}
+}

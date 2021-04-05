@@ -6,6 +6,7 @@ target 'Vkontakte' do
   use_frameworks!
 
   # Pods for Vkontakte
- pod 'Alamofire', '~> 5.2'
+pod 'Alamofire', '~> 5.2'
+  pod 'AlamofireImage', '~> 4.1'
 
 end

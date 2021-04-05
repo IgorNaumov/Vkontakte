@@ -7,10 +7,10 @@
 
 import Foundation
 
-class SessionVK {
+class Session {
     private init(){}
-    static let instance = SessionVK()
+    static let instance = Session()
     
-    var userId = 0
-    var token = ""
+    var userID = Int()
+    var accessToken = String()
 }

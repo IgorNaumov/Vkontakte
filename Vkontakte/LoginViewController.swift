@@ -60,8 +60,8 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
             }
         
         
-        SessionVK.instance.token = params["access_token"]!
-        SessionVK.instance.userId = Int(params["user_id"]!)!
+        Session.instance.accessToken = params["access_token"]!
+        Session.instance.userID = Int(params["user_id"]!)!
         
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarController") as! TabBarController

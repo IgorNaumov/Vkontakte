@@ -6,21 +6,43 @@
 //
 
 import Foundation
-import Alamofire
 
 
-func loadPhotoFromVK () {
-    AF.request("https://api.vk.com/method/photos.getAll", parameters: [
-        "access_token" : SessionVK.instance.token,
-        "userId" : SessionVK.instance.userId,
-        "lang" : "ru",
-        "owner_id": "owner_id",
-        "extended": "1",
-        "v" : "5.130"
-    ]).responseJSON {
-        response in
-        print(response.value as Any)
+struct PhotoResponse: Decodable {
+    let response: PhotoObject
+}
+
+struct PhotoObject: Decodable {
+    let items: [Photo]
+}
+
+struct Photo: Decodable {
+    var type = ""
+    var photoUrl = ""
+
+    
+    enum CodingKeys: String, CodingKey {
+        case sizes = "sizes"
+        case likes = "likes"
     }
     
+    enum SizeKeys: String, CodingKey {
+        case type = "type"
+        case photoUrl = "url"
+    }
     
+
+    
+    init(from decoder: Decoder) throws {
+        let photoValues = try decoder.container(keyedBy: CodingKeys.self)
+        
+        var sizesArray = try photoValues.nestedUnkeyedContainer(forKey: .sizes)
+        let sizesValues = try sizesArray.nestedContainer(keyedBy: SizeKeys.self)
+        self.type = try sizesValues.decode(String.self, forKey: .type)
+        self.photoUrl = try sizesValues.decode(String.self, forKey: .photoUrl)
+
+    }
 }
+
+
+

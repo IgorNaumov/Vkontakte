@@ -6,55 +6,24 @@
 //
 
 import UIKit
+import Foundation
 import Alamofire
 
-class Group {
-    var name: String
-    var avatar: UIImage?
-    var countOfPeople: Int = 100
-    
-    
-    init (name: String, avatar: String) {
-        self.name = name
-        self.avatar = UIImage(named: avatar)
-    }
-    
-    
-    
-}
-extension Group: Equatable {
-    static func == (lhs: Group, rhs: Group) -> Bool {
-        lhs.name == rhs.name && lhs.avatar == rhs.avatar
-    }
+
+//MARK: - GroupVK
+struct GroupsVK: Codable {
+    let response: GroupObject
 }
 
-func loadgroupFromVK () {
-    AF.request("https://api.vk.com/method/groups.get", parameters: [
-        "access_token" : SessionVK.instance.token,
-        "userId" : SessionVK.instance.userId,
-        "lang" : "ru",
-        "fields" : "name, photo_50, screen_name",
-        "extended": "1",
-        "v" : "5.130"
-    ]).responseJSON {
-        response in
-        print(response.value as Any)
-    }
+struct GroupObject: Codable {
+    let count: Int
+    let items: [Group]
+}
+
+struct Group: Codable {
     
-    
+    let name: String
+    let photo_50: String
 }
 
 
-func loadFromVK (){
-AF.request("https://api.vk.com/method/friends.get", method: .get, parameters: [
-    "access_token" : SessionVK.instance.token,
-    "user_id" : SessionVK.instance.userId,
-    //"order" : "name",
-    "lang" : "ru",
-    "fields" : "sex, domain, last_name",
-    "v" : "5.130"
-]).responseJSON {
-    response in
-    print(response.value as Any)
-}
-}

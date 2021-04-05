@@ -24,7 +24,7 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFromVK ()
+        //loadFromVK ()
         self.title = "Новости"
     }
     

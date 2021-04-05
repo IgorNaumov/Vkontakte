@@ -10,13 +10,8 @@ import UIKit
 class AddGroupTableViewController: UITableViewController {
    
     
-    let newGroups: [Group] = [
-        Group(name: "GeekBrains", avatar: "heart"),
-        Group(name: "Moscow online", avatar: ""),
-        Group(name: "Pizza", avatar: "new2"),
-        Group(name: "Spider club", avatar: "")
-        ]
-    
+    let networkService = NetWorkService()
+    var groups = [Group]()
    
     
     override func viewDidLoad() {
@@ -33,19 +28,15 @@ class AddGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-       return newGroups.count
+        return groups.count
         
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newGroupCell", for: indexPath) as! AddGroupTableViewCell
-        
-       
-        
-        let group = newGroups[indexPath.row]
-        cell.groupImageView.image = group.avatar
-        cell.groupNameLabel.text = group.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newGroupCell", for: indexPath) as! GroupTableViewCell
+        let group = groups[indexPath.row]
 
+        cell.configuregr(with: group)
         return cell
     }
     

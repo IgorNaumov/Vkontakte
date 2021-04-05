@@ -4,47 +4,25 @@
 //
 //  Created by Игорь Наумов on 17.02.2021.
 //
-
-import UIKit
+import Foundation
 import Alamofire
 
-
-func loadFriendsFromVK () {
-    AF.request("https://api.vk.com/method/friends.get", parameters: [
-        "access_token" : SessionVK.instance.token,
-        "userId" : SessionVK.instance.userId,
-        "order" : "name",
-        "lang" : "ru",
-        "fields" : "first_name, last_name, bdate, photo_50, id",
-        "v" : "5.130"
-    ]).responseJSON {
-        response in
-        print(response.value as Any)
-    }
-    
-    
+struct FriendVK: Codable {
+    let response: ResponseVK
+}
+struct ResponseVK: Codable {
+    let count: Int
+    let items: [Friends]
+}
+struct Friends: Codable {
+    let id: Int
+    let first_name: String
+    let last_name: String
+    let is_closed: Bool
+    let can_access_closed: Bool
+    let track_code: String
+    let photo_50: String
 }
 
 
-
-struct Friend {
-    var name: String
-    var surname: String
-    var avatar: UIImage?
-    var photos: [UIImage] = []
-    
-    init(name: String, surname: String, avatar: String) {
-        self.name = name
-        self.surname = surname
-        let img = UIImage(named: avatar)
-        self.avatar = img
-        if let unwrappedImage = img {
-            self.photos = Array(repeating: unwrappedImage, count: 10)
-        }
-      
-        }
-    }
-
-
-    
 

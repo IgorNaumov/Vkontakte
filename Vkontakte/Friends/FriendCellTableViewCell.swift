@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class FriendCellTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
-    
+ 
     @IBOutlet weak var shadowView: Shadow!
     
     @IBOutlet weak var userAvatar: UIImageView!
@@ -25,10 +26,16 @@ class FriendCellTableViewCell: UITableViewCell {
         
     }
     
-    func setup(item: Friend) {
-        userName.text = "\(item.name) \(item.surname)"
-        userAvatar.image = item.avatar
+//    func setup(item: Friend) {
+//        userName.text = "\(item.name) \(item.surname)"
+//        userAvatar.image = item.avatar
+//    }
+    
+    
+    public func configure(with user: Friends){
+        let avatar50 = user.photo_50
+        userAvatar.af.setImage(withURL: URL(string: avatar50)!)
     }
-
+   
 
 }
